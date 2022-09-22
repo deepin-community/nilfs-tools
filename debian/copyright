@@ -1,0 +1,114 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: nilfs-utils
+Upstream-Contact: linux-nilfs@vger.kernel.org
+Source: https://nilfs.sourceforge.io/en/
+
+Files: *
+Copyright: 2005-2016 Nippon Telegraph and Telephone Corporation
+License: GPL-2+
+
+Files:
+    include/*
+    lib/*
+Copyright: 2005-2016 Nippon Telegraph and Telephone Corporation
+License: LGPL-2.1+
+
+Files: include/nilfs2_fs.h
+Copyright: 2005-2008 Nippon Telegraph and Telephone Corporation
+           1992-1995 Remy Card <card@masi.ibp.fr>
+           1991-1992 Linus Torvalds
+License: LGPL-2.1+
+Comment:
+ include/nilfs_fs.h is a derivated work of include/linux/ext2_fs.h
+ from the Linux kernel sources.
+
+Files: include/pathnames.h
+Copyright: not-applicable
+License: Public-Domain
+ This code is in the public domain.
+
+Files: lib/crc32.c
+Copyright: 2010 Jiro SEKIBA <jir@unicus.jp>
+           2000 Johan Billing
+License: LGPL-2.1+
+
+Files: lib/realpath.c
+Copyright: 1993 Rick Sladkey <jrs@world.std.com>
+License: LGPL-2+
+
+Files: scripts/checkpatch.pl
+Copyright: 2001      Dave Jones
+           2005      Joel Schopp <jschopp@austin.ibm.com>
+           2007-2008 Andy Whitcroft <apw@uk.ibm.com>
+           2008-2010 Andy Whitcroft <apw@canonical.com>
+License: GPL-2
+
+Files: debian/*
+Copyright:
+    2008-2012 Daniel Baumann <daniel.baumann@progress-technologies.net>
+    2014-2018 Dmitry Smirnov <onlyjob@debian.org>
+License: GPL-2+
+
+License: GPL-2
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, version 2 of the License.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>.
+ .
+ The complete text of the GNU General Public License
+ can be found in /usr/share/common-licenses/GPL-2 file.
+
+License: GPL-2+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>.
+ .
+ The complete text of the GNU General Public License
+ can be found in /usr/share/common-licenses/GPL-2 file.
+
+License: LGPL-2+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+ ․
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+ ․
+ On Debian systems, the complete text of the GNU Library General Public
+ License Version 2 can be found in "/usr/share/common-licenses/LGPL-2".
+
+License: LGPL-2.1+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License as published by
+ the Free Software Foundation, either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU Lesser General Public License for more details.
+ .
+ You should have received a copy of the GNU Lesser General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>.
+ .
+ The complete text of the GNU Lesser General Public License
+ can be found in /usr/share/common-licenses/LGPL-2 file.

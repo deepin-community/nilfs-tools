@@ -1,0 +1,104 @@
+PRIMARY AUTHORS AND MAJOR CONTRIBUTORS TO NILFS-UTILS
+
+Authors who worked or are working at labs of NTT Corporation:
+* Ryusuke Konishi <konishi.ryusuke@gmail.com>
+- Primary maintainer (02/2008-Present)
+- Implemented mkfs.nilfs2, mount.nilfs2
+- Enhanced snapshot/checkpoint tools, cleanerd, and libraries.
+- Wrote nilfs-resize.
+- Wrote nilfs-clean, libnilfscleaner library.
+- Fixed many bugs
+- Wrote man pages
+- Initial development
+
+* Koji Sato
+- Primary designer of nilfs2 garbage collector
+- Implemented cleanerd, nilfs library, and snapshot/checkpoint tools
+- Wrote autoconf files
+- Initial development
+
+* Naruhiko Kamimura
+- Fixed libnilfs so that it follows symlink
+- Enhanced lscp to allow specifying range of checkpoints
+- Enhanced lssu to allow specifying range of segments
+
+* Seiji Kihara
+- Maintainer of RPM packages of nilfs-utils and nilfs2 standalone modules
+- Initial development
+
+* Yoshiji Amagai
+- Initial development
+
+* Hisashi Hifumi
+- Initial development
+
+* Satoshi Moriai
+- Initial development
+
+Other contributors:
+* Andreas Rohner <andreas.rohner@gmx.net>
+Feb 7, 2014: shutcut for certain GC operations
+    - add NILFS_IOCTL_SET_SUINFO ioctl support
+    - add optimized version of nilfs_xreclaim_segment
+    - and so forth.
+Oct 29, 2017: fix conflicting data buffer error
+
+* Dan McGee <dan@archlinux.org>
+Dec 21, 2011: bunch of fixes and cleanups including:
+    - corrected error code propagation of umount.nilfs2 (libmount version)
+    - improved error message for permission failure of rmcp command
+    - sanity check for positive checkpoint number
+    - proper parser routine use for 64-bit integer inputs
+    - removal of kern_compat.h
+    - and so forth.
+Jan 5, 2012: add -h command line option to mkfs.nilfs2
+Sep 1, 2014: lscp: always show snapshots, even if marked minor
+Sep 1, 2014: mount.nilfs2(libmount ver.): don't base GC startup on-mtab context
+
+* David Arendt <admin@prnet.org>
+March 29, 2010: added cleaning functions based on the number of free segments
+March 29, 2010: added mount option to disable garbage collection
+
+* David Smid <david@unity-linux.org>
+December 3, 2009: introduced pp (protection period) mount option
+
+* dexen deVries <dexen.devries@gmail.com>
+March 6, 2011: support relative pathnames in command line of nilfs_cleanerd
+
+* Dmitry Smirnov <onlyjob@member.fsf.org>
+April 19, 2014: install nilfs-* executables to /usr/bin
+
+* Eric Sandeen <sandeen@redhat.com>
+February 13, 2010: fix build against newer glibc
+
+* Jiro SEKIBA <jir@unicus.jp>
+November 9, 2009: expose struct nilfs_btree_node
+September 3, 2010: enhanced super block read/write routines
+September 3, 2010: implemented nilfs-tune
+November 19, 2010: replaced crc32 implementation
+
+* Kurt Van Dijck <dev.kurt@vandijck-laurijssen.be>
+January 3, 2017: fix some build issues
+    - libmount, libblkid: fix order of autoconf probing
+    - mount.nilfs: drop include rpc/types.h
+    - nilfs-utils: use _POSIX_MAX_INPUT
+
+* Matteo Frigo <athena@fftw.org>
+September 11, 2010: compare device number for mount check
+
+* Hitoshi Mitake <mitake.hitoshi@gmail.com>
+January 1, 2014: cleanerd: adjust OOM killer
+January 4, 2014: mkfs.nilfs2: statically check size of important structures
+January 6, 2014: rework daemonize() of cleanerd
+    - cleanerd: ignore nofork option
+    - cleanerd: call _exit(2) twice for ensuring not being a session leader
+    - mount: don't pass -n option to cleanerd
+
+* Takashi Iwai <tiwai@suse.de>
+July 24, 2012: add --print option to mkcp
+
+* Vyacheslav Dubeyko <slava@dubeyko.com>
+March 25, 2013: mkfs.nilfs2 should check presence of NILFS2 volume on device
+
+And this software is realized and maintained by many other
+contributions and helps.

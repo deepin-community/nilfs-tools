@@ -1,0 +1,21 @@
+Source: nilfs-tools
+Section: admin
+Priority: optional
+Standards-Version: 4.4.0
+Maintainer: Filesystems Group <filesystems-devel@lists.alioth.debian.org>
+Uploaders: Dmitry Smirnov <onlyjob@debian.org>
+Build-Depends: debhelper (>= 12~), libmount-dev, uuid-dev, libblkid-dev
+Homepage: https://nilfs.osdn.jp/en/
+Vcs-Browser: https://salsa.debian.org/debian/nilfs-tools
+Vcs-Git: https://salsa.debian.org/debian/nilfs-tools.git
+
+Package: nilfs-tools
+Architecture: linux-any
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Continuous Snapshotting Log-structured Filesystem
+ NILFS is a new implementation of a log-structured filesystem. It allows
+ continuous snapshotting, so that users can restore files mistakenly overwritten
+ or destroyed even when it happens after the last backup.
+ .
+ This package contains utilities (mkfs, fsck, etc.) used to work with nilfs.

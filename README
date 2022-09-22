@@ -1,0 +1,77 @@
+* Required packages
+
+ - libuuid-devel or uuid-dev
+ - libmount-devel (fedora 14 and later)
+ - libselinux-devel (unless you specify --without-selinux or --with-libmount)
+ - libblkid-devel (unless you specify --without-blkid)
+
+* How to compile
+
+ $ ./configure
+ $ make
+
+To link mount.nilfs2 and umount.nilfs2 helper programs with libmount
+library, install libmount-devel package and run the configure script
+with --with-libmount option:
+
+ $ ./configure --with-libmount
+
+This option is set by default if /etc/mtab is a symlink to
+/proc/mounts in your system.
+
+If your system is a 64-bit architecture and libraries are installed
+into /usr/lib64 instead of /usr/lib, change the library directory with
+--libdir option:
+
+ $ ./configure --libdir=/usr/lib64
+
+
+* Trouble shooting
+
+If the blkid library in your environment is old and unusable to this
+package, you can use --without-blkid option:
+
+ $ ./configure --without-blkid
+
+However, use of this option is normally not recommended because it
+disables the safety check of mkfs.nilfs2 which prevents users from
+unexpectedly overwriting an in-use device.
+
+You can compile legacy mount.nilfs2 and umount.nilfs2 without support
+of selinux context mount options (-o context=<context>, etc):
+
+ $ ./configure --without-selinux
+
+For mount.nilfs2 built with the --with-libmount option, support of
+the context mount depends on the libmount library.
+
+
+* How to get development sources
+
+ $ cd your-work-directory
+ $ git clone git://github.com/nilfs-dev/nilfs-utils.git
+
+Before compiling the development sources, you need to run autogen.sh
+script.  This is not required for packaged sources unless you changed
+the configuration.
+ 
+ $ cd nilfs-utils
+ $ ./autogen.sh
+
+* Developer's notes
+
+The central resource for nilfs-utils development is the mailing list
+(linux-nilfs@vger.kernel.org).
+
+First, please read the following documents (in short, follow Linux
+kernel development rules):
+
+http://lxr.linux.no/source/Documentation/CodingStyle
+http://lxr.linux.no/source/Documentation/SubmittingPatches
+
+Then, check your patches with the patch style checker prior to
+submission (scripts/checkpatch.pl) like the following example:
+
+ $ ./scripts/checkpatch.pl <patch-file>
+ ...
+ <patch-file> has no obvious style problems and is ready for submission.

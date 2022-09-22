@@ -1,0 +1,2 @@
+version=3
+https://nilfs.sourceforge.io/download/nilfs-utils-([\d+[\d.]+)\.tar\.(?:bz2|xz|gz)

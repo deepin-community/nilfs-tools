@@ -1,0 +1,94 @@
+.\"  Copyright (C) 2007-2012 Nippon Telegraph and Telephone Corporation.
+.\"  Written by Ryusuke Konishi <konishi.ryusuke@gmail.com>
+.\"
+.TH LSCP 1 "Apr 2014" "nilfs-utils version 2.2"
+.SH NAME
+lscp \- list NILFS2 checkpoints
+.SH SYNOPSIS
+.B lscp
+[\fIoptions\fP] [\fIdevice\fP]
+.SH DESCRIPTION
+.B lscp
+is a utility for displaying checkpoints or snapshots of the NILFS2
+file system found in \fIdevice\fP.  When \fIdevice\fP is omitted,
+\fI/proc/mounts\fP is examined to find a NILFS2 file system.
+.PP
+This command will fail if the \fIdevice\fP has no active mounts of a
+NILFS2 file system.
+.SH OPTIONS
+.TP
+\fB\-a\fR, \fB\-\-all\fR
+Do not hide minor checkpoints.
+.TP
+\fB\-b\fR, \fB\-\-show\-block\-count\fR
+Show number of used blocks instead of appended blocks.  This is the
+default mode.
+.TP
+\fB\-g\fR, \fB\-\-show\-increment\fR
+Show number of appended blocks instead of used blocks.
+.TP
+\fB\-r\fR, \fB\-\-reverse\fR
+Reverse order.
+.TP
+\fB\-s\fR, \fB\-\-snapshot\fR
+List only snapshots.
+.TP
+\fB\-i \fIindex\fR, \fB\-\-index\fR=\fIindex\fR
+Skip \fIindex\fP checkpoints (or snapshots) at start of input.
+.TP
+\fB\-n \fIlines\fR, \fB\-\-lines\fR=\fIlines\fR
+List only \fIlines\fP input checkpoints (or snapshots).
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Display help message and exit.
+.TP
+\fB\-V\fR, \fB\-\-version\fR
+Display version and exit.
+.SH "FIELD DESCRIPTION"
+Every line of the \fBlscp\fP output consists of the following seven
+fields:
+.TP
+.B CNO
+Checkpoint number.
+.TP
+.B DATE
+Creation date.
+.TP
+.B TIME
+Creation time.
+.TP
+.B MODE
+Mode of the checkpoint; \fBcp\fP for a plain checkpoint, and \fBss\fP
+for a snapshot.
+.TP
+.B FLG
+Flags on the checkpoint. At present, character ``i'' is printed in the
+field if the checkpoint was created only by garbage collection,
+checkpoint mode change, or other change of internal state.  Otherwise
+``-'' is printed.
+.TP
+.B NBLKINC (optional)
+Number of blocks appended by the checkpoint.  This field is displayed
+instead of BLKCNT field when \fB\-g\fR option is specified.
+.TP
+.B BLKCNT
+Number of blocks used by the checkpoint.
+.TP
+.B ICNT
+Number of inodes included in the entire file system at the time
+specified by the checkpoint.
+.SH BUGS
+NILFS2 in Linux kernel version 2.6.38 and earlier does not support the
+block count (BLKCNT) information.
+.SH AUTHOR
+Koji Sato
+.SH AVAILABILITY
+.B lscp
+is part of the nilfs-utils package and is available from
+https://nilfs.sourceforge.io.
+.SH SEE ALSO
+.BR nilfs (8),
+.BR mkcp (8),
+.BR chcp (8),
+.BR rmcp (8),
+.BR nilfs-tune (8).

@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all,-pie
+
+%:
+	dh ${@}
+
+override_dh_auto_configure:
+	LDCONFIG="/sbin/ldconfig -n" dh_auto_configure -- --enable-libmount=yes
+
+override_dh_auto_install:
+	dh_auto_install -- DESTDIR=$(CURDIR)/debian/nilfs-tools
+
+	# removing unused files
+	rm -fv debian/nilfs-tools/usr/lib/*/*.la
+
+override_dh_strip:
+	dh_strip --dbgsym-migration='nilfs-tools-dbg (<< 2.2.6~)'

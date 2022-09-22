@@ -1,0 +1,59 @@
+.\"  Copyright (C) 2007-2012 Nippon Telegraph and Telephone Corporation.
+.\"  Written by Ryusuke Konishi <konishi.ryusuke@gmail.com>
+.\"
+.TH RMCP 8 "Apr 2014" "nilfs-utils version 2.2"
+.SH NAME
+rmcp \- remove NILFS2 checkpoints
+.SH SYNOPSIS
+.B rmcp
+[\fIoptions\fP] [\fIdevice\fP] \fIcheckpoint-range\fP ...
+.SH DESCRIPTION
+.B rmcp
+is a utility for removing checkpoints from the NILFS2 file system
+found in \fIdevice\fP.  The checkpoints which user wants to remove are
+specified with one or more \fIcheckpoint-ranges\fP.  When \fIdevice\fP
+is omitted, rmcp tries to find a NILFS2 file system from
+\fI/proc/mounts\fP.
+.PP
+The \fIcheckpoint-range\fP must be provided with one or two integers
+in one of the following way:
+.TP
+.BR cno
+single checkpoint number
+.TP
+.BR start..end
+every checkpoint number between \fBstart\fP and \fBend\fP
+.TP
+.BR ..end
+every checkpoint number equal or younger than \fBend\fP
+.TP
+.BR start..
+every checkpoint number equal or greater than \fBstart\fP
+.PP
+This command is valid only for mounted NILFS2 file systems, and
+will fail if the \fIdevice\fP has no active mounts.
+.SH OPTIONS
+.TP
+\fB\-f\fR, \fB\-\-force\fR
+Ignore snapshots or nonexistent checkpoints.
+.TP
+\fB\-i\fR, \fB\-\-interactive\fR
+Prompt before any removal.
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Display help message and exit.
+.TP
+\fB\-V\fR, \fB\-\-version\fR
+Display version and exit.
+.SH AUTHOR
+Koji Sato, Ryusuke Konishi <konishi.ryusuke@gmail.com>.
+.SH AVAILABILITY
+.B rmcp
+is part of the nilfs-utils package and is available from
+https://nilfs.sourceforge.io.
+.SH SEE ALSO
+.BR nilfs (8),
+.BR lscp (1),
+.BR mkcp (8),
+.BR chcp (8),
+.BR nilfs-tune (8).
